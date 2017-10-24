@@ -26,16 +26,17 @@ module.exports = function (vnode) {
             looper = setTimeout(this.routeToMain, 2000);
         },
         view(/*vnode*/) {
-            return m('.stairs-body',
-                m('.stairs-loader', [
-                    m('.stairs-loader__bar'),
-                    m('.stairs-loader__bar'),
-                    m('.stairs-loader__bar'),
-                    m('.stairs-loader__bar'),
-                    m('.stairs-loader__bar'),
-                    m('.stairs-loader__ball'),
-                ])
-            );
+            return m('.holder', [
+                m('.preloader', [
+                    m('div'),
+                    m('div'),
+                    m('div'),
+                    m('div'),
+                    m('div'),
+                    m('div'),
+                    m('div'),
+                ]),
+            ]);
         },
     };
 };
