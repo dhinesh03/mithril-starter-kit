@@ -1,0 +1,14 @@
+# compiled output
+/dist
+
+# dependencies
+/node_modules
+/bower_components
+
+# misc
+.sass-cache
+.eslintcache
+npm-debug.log*
+
+# mac
+.DS_Store
