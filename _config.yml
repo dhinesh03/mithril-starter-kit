@@ -1,3 +1,8 @@
 theme: jekyll-theme-cayman
 show_downloads: true
 title: Mithril Starter Kit
+description: A boilerplate Mithril application using ES6, Babel, Webpack 3, Sass/SCSS, Webpack dev server hot reload and eslint
+author: Dhinesh Kumar
+logo: /src/styles/images/favicon.png
+plugins:
+  - jekyll-seo-tag
