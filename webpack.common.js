@@ -23,11 +23,11 @@ module.exports = {
                 interpolate: true,
             },
         }, {
-            test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+            test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
             loader: 'file-loader',
             options: {
                 name: '[name].[ext]',
-                publicPath: '../', // override the default path
+                publicPath: '../fonts/',
                 outputPath: 'fonts/',
             },
         }, {
@@ -35,7 +35,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
                 name: '[name].[ext]',
-                publicPath: '../',
+                publicPath: '../images/',
                 outputPath: 'images/',
             },
         }, {
