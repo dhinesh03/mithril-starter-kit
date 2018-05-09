@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -7,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = merge(common, {
+    mode: 'production',
     devtool: 'hidden-source-map',
     module: {
         rules: [{
@@ -24,17 +24,18 @@ module.exports = merge(common, {
         new CleanWebpackPlugin(['dist']),
         new ExtractTextPlugin({
             filename: (getPath) => {
-                return getPath('css/[name]-[contenthash].css');
+                return getPath('css/[name]-[hash].css');
             },
             allChunks: true,
         }),
-        new UglifyJSPlugin({
-            sourceMap: true,
-        }),
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production'),
-            },
-        }),
     ],
+    optimization: {
+        minimizer: [
+            new UglifyJSPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true,
+            }),
+        ],
+    },
 });

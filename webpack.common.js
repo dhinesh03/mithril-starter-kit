@@ -11,7 +11,7 @@ module.exports = {
         './index.js',
     ],
     output: {
-        path: resolve(__dirname, 'dist/'),
+        path: resolve(__dirname, 'dist'),
         filename: '[name]-bundle.js',
         chunkFilename: '[name]-chunk.js',
     },
@@ -44,7 +44,7 @@ module.exports = {
             use: [{
                 loader: 'babel-loader',
                 options: {
-                    presets: ['es2015', 'env', 'stage-3'],
+                    presets: ['env', 'stage-3'],
                 },
             }],
         }],
@@ -52,21 +52,22 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',
-            //favicon: './styles/images/favicon.png',
         }),
         new webpack.ProvidePlugin({
             m: 'mithril', //Global access
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            minChunks: function(module) {
-                return module.context && module.context.indexOf('node_modules') !== -1;
-            },
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest',
-            minChunks: Infinity,
-        }),
         new webpack.optimize.ModuleConcatenationPlugin(),
     ],
+    optimization: {
+        runtimeChunk: true,
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all',
+                },
+            },
+        },
+    },
 };

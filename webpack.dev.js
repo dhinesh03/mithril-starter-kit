@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = merge(common, {
-    devtool: 'inline-source-map',
+    mode: 'development',
     devServer: {
         hot: true,
         contentBase: './dist',
@@ -57,7 +57,5 @@ module.exports = merge(common, {
         }),
         new webpack.HotModuleReplacementPlugin(),
         // enable HMR globally
-        new webpack.NamedModulesPlugin(),
-        // prints more readable module names in the browser console on HMR updates
     ],
 });
