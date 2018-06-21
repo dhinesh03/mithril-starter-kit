@@ -1,6 +1,6 @@
-//var SampleComponent = require('../views/components/sample-component');
-import SampleComponent from '../views/components/sample-component';
-module.exports = function(/*vnode*/) {
+import SampleComponent from '../components/sample-component';
+
+export default function(/*vnode*/) {
    
     return {
         oninit: function(/*vnode*/) {
@@ -34,4 +34,4 @@ module.exports = function(/*vnode*/) {
             ]);
         },
     };
-};
+}

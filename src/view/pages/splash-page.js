@@ -1,5 +1,6 @@
+import SplashLoader from '../components/splash-loader';
 
-module.exports = function (vnode) {
+export default function (vnode) {
     var looper = null;
     var routeToMainInvokedCount = 0;
     return {
@@ -26,17 +27,7 @@ module.exports = function (vnode) {
             looper = setTimeout(this.routeToMain, 2000);
         },
         view(/*vnode*/) {
-            return m('.holder', [
-                m('.preloader', [
-                    m('div'),
-                    m('div'),
-                    m('div'),
-                    m('div'),
-                    m('div'),
-                    m('div'),
-                    m('div'),
-                ]),
-            ]);
+            return m(SplashLoader);
         },
     };
-};
+}

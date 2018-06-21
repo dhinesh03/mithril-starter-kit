@@ -1,6 +1,6 @@
 var count = 0; // added a variable
 
-module.exports = {
+export default {
     view: function() {
         return m('main', [
             m('h1', {
