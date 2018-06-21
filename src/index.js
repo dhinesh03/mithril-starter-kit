@@ -1,3 +1,4 @@
+/* Import all vendor.scss / css here[e.g. Import 'font-awesome/scss/font-awesome.scss';] */
 import { Routes, DefaultRoute } from './view/routes';
 
 if (module.hot) {
