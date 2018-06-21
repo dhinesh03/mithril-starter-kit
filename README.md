@@ -18,36 +18,43 @@ npm run build
   # Compiles the app for production and all compiled files lies on dist dir.
   # To deploy an the application simply transfer the dist to a web server's public directory.
 ```
+
 ## Directory Structure:
 ```shell
-├── dist/                         # Compiled files
+├── dist/                         # Compiled application
 │     ├── css/
-│     │    ├──main.css
-│     │    └──vendor.css
+│     │     ├── *.css
+│     │     └── *.css.map
 │     ├── fonts/
 │     ├── images/
-│     ├── main-bundle.js
-│     ├── vendor-bundle.js
+│     ├── *.js
+│     ├── *.js.map
 │     └── index.html
-│
-├── node_modules/                 # 3rd-party libraries
 │
 ├── src/                          # Application source files 
 │     │
-│     ├── styles/                 
-│     │     ├── components/       # Generic .scss files
-│     │     ├── images/           # Image files that are copied to build production output (e.g. favicon.ico)
-│     │     ├── app.scss          # Your application specific .scss goes here
-│     │     └── vendor-scss.js    # Import all vendor .scss/css here [e.g. require('font-awesome/scss/font-awesome.scss')]  
+│     ├── images/                 # Image files that are copied to build production output (e.g. favicon.ico)
 │     │
-│     ├── views/                  # All your application view logic files
-│     │     ├── components/
-│     │     ├── your-pages.js
-│     │     └── ...
+│     ├── view/                   # All your application view logic files
+│     │     │
+│     │     ├── components/             # All your view components
+│     │     │     │
+│     │     │     ├── your-component/       # A single view component
+│     │     │     │     ├── index.js            # The view component code
+│     │     │     │     ├── styles.scss         # The view component styles
+│     │     │     │     └── ...  
+│     │     │     └── ...
+│     │     │
+│     │     ├── pages/                   # All your top level page components
+│     │     │     ├── your-pages.js      
+│     │     │     └── ...
+│     │     │
+│     │     └── routes.js               # Application routing definition
 │     │
-│     ├── index.html            
+│     ├── index.html              # Application HTML template
 │     └── index.js                # Application entry point
 │   
-├── eslintrc.js                   # To configuring ESLint
-└── package.json                  # NPM scripts list
+├── eslintrc.js                   # ESLint configuration
+├── package.json                  # NPM configuration and scripts
+└── webpack.*.js                  # Webpack configuration
 ```

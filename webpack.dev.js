@@ -1,10 +1,12 @@
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
     mode: 'development',
+    devtool: 'source-map',
     devServer: {
         hot: true,
         contentBase: './dist',
@@ -25,8 +27,10 @@ module.exports = merge(common, {
             }].concat(ExtractTextPlugin.extract({
                 use: [{
                     loader: 'css-loader',
+                    options: { sourceMap: true },
                 }, {
                     loader: 'sass-loader',
+                    options: { sourceMap: true },
                 }],
                 // use style-loader in development
                 fallback: 'style-loader',
@@ -50,12 +54,9 @@ module.exports = merge(common, {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: (getPath) => {
-                return getPath('css/[name].css');
-            },
+            filename: (getPath) => getPath('css/[name].css'),
             allChunks: true,
         }),
         new webpack.HotModuleReplacementPlugin(),
-        // enable HMR globally
     ],
 });

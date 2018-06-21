@@ -1,6 +1,6 @@
-//var SampleComponent = require('../views/components/sample-component');
-import SampleComponent from '../views/components/sample-component';
-module.exports = function(/*vnode*/) {
+import SampleComponent from '../components/sample-component';
+
+export default function(/*vnode*/) {
    
     return {
         oninit: function(/*vnode*/) {
@@ -31,7 +31,8 @@ module.exports = function(/*vnode*/) {
                 m('h2', 'Congratulations, you made it!'),
                 m('p', 'You\'ve spun up your very first Mithril app :-)'),
                 m(SampleComponent),
+                m(SampleComponent),
             ]);
         },
     };
-};
+}

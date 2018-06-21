@@ -1,15 +1,12 @@
-const {
-    resolve,
-} = require('path');
+const { resolve } = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     context: resolve(__dirname, 'src'),
-    entry: [
-        './styles/vendor-scss.js',
-        './index.js',
-    ],
+    entry: {
+        main: './index.js',
+    },
     output: {
         path: resolve(__dirname, 'dist'),
         filename: '[name]-bundle.js',
