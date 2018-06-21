@@ -49,7 +49,6 @@ npm run build
 │     │     │     ├── your-pages.js      
 │     │     │     └── ...
 │     │     │
-│     │     ├── app.scss                # Top level app styles (shouldn't be many of these)
 │     │     └── routes.js               # Application routing definition
 │     │
 │     ├── index.html              # Application HTML template

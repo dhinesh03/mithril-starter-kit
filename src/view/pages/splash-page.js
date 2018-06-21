@@ -1,8 +1,10 @@
 import SplashLoader from '../components/splash-loader';
 
 export default function (vnode) {
+
     var looper = null;
     var routeToMainInvokedCount = 0;
+
     return {
         routeToMain() {
             routeToMainInvokedCount++;

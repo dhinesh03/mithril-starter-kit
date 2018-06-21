@@ -1,13 +1,12 @@
-// Load application level styles
-import './app.scss';
+import PageLayout from './components/page-layout';
 
-// Load individual pages
+// Individual pages
 import IndexPage from './pages/landing-page';
 import Splash    from './pages/splash-page';
 
 const Routes = {
-    '/splash': Splash,
-    '/index': IndexPage,
+    '/splash': PageLayout(Splash),
+    '/index': PageLayout(IndexPage),
 };
 
 const DefaultRoute = '/splash';

@@ -1,0 +1,7 @@
+/* HACK: Include global app styles here */
+@import './app.scss';
+
+.page-layout {
+  max-width: 800px;
+  margin: 1em auto;
+}
