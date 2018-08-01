@@ -1,6 +1,9 @@
 /* Import all vendor.scss / css here[e.g. Import 'font-awesome/scss/font-awesome.scss';] */
 import { Routes, DefaultRoute } from './view/routes';
 
+/* Include global app styles here, so that it will over ride component's css styles*/
+import './app.scss';
+
 if (module.hot) {
     module.hot.accept();
 }
