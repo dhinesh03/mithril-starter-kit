@@ -8,12 +8,15 @@ module.exports = {
     globals: {
         'm': true
     },
-    extends: 'eslint:recommended',    
+    extends: [
+        'eslint:recommended',
+    ],
     parserOptions: {
         sourceType: 'module',
         ecmaVersion: 6,
         ecmaFeatures: {
-            experimentalObjectRestSpread: true
+            experimentalObjectRestSpread: true,
+            jsx: true,
         }
     },
     rules: {

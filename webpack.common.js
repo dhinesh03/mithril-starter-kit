@@ -43,10 +43,10 @@ module.exports = {
                 options: {
                     presets: ['env', 'stage-3'],
                     plugins: [
-                        ["transform-react-jsx", {
-                            "pragma": "m"
-                        }]
-                    ]
+                        ['transform-react-jsx', {
+                            'pragma': 'm',
+                        }],
+                    ],
                 },
             }],
         }],
