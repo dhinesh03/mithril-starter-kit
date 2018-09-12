@@ -41,7 +41,7 @@ module.exports = {
             use: [{
                 loader: 'babel-loader',
                 options: {
-                    presets: ['env', 'stage-3'],
+                    presets: ['@babel/env'],
                     plugins: [
                         ['transform-react-jsx', {
                             'pragma': 'm',
