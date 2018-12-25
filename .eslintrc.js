@@ -10,13 +10,13 @@ module.exports = {
     },
     extends: [
         'eslint:recommended',
+        'plugin:mithril/recommended',
     ],
     parserOptions: {
         sourceType: 'module',
-        ecmaVersion: 6,
+        ecmaVersion: 9,
         ecmaFeatures: {
-            experimentalObjectRestSpread: true,
-            jsx: true,
+            jsx: true
         }
     },
     rules: {
@@ -27,6 +27,6 @@ module.exports = {
         'semi': ['error', 'always'],
         'no-unused-vars': ['warn'],
         'no-console': 0,
-        'rest-spread-spacing': ["error", "never"]
+        'rest-spread-spacing': ["error", "never"],
     },
 };
