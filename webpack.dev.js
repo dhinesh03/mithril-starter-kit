@@ -42,6 +42,7 @@ module.exports = merge(common, {
             loader: 'eslint-loader',
             options: {
                 cache: true,
+                configFile: '.eslintrc.js',
                 emitWarning: true,
                 // Fail only on errors
                 failOnWarning: false,
