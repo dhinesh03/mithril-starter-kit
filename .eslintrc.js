@@ -10,7 +10,7 @@ module.exports = {
     },
     extends: [
         'eslint:recommended',
-        'plugin:mithril/recommended',
+        'plugin:mithril/recommended'
     ],
     parserOptions: {
         sourceType: 'module',

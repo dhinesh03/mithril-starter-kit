@@ -1,6 +1,7 @@
 const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+//const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const common = require('./webpack.common.js');
@@ -15,6 +16,8 @@ module.exports = merge(common, {
                 use: [{
                     loader: 'css-loader',
                     options: { sourceMap: true },
+                }, {
+                    loader: 'postcss-loader',
                 }, {
                     loader: 'sass-loader',
                     options: { sourceMap: true },
@@ -31,7 +34,7 @@ module.exports = merge(common, {
     ],
     optimization: {
         minimizer: [
-            new UglifyJSPlugin({
+            new TerserPlugin({
                 cache: true,
                 parallel: true,
                 sourceMap: true,
