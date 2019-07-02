@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const common = require('./webpack.common.js');
 
@@ -21,22 +21,23 @@ module.exports = merge(common, {
     },
     module: {
         rules: [{
-            test: /(\.css|\.scss)$/,
+            test: /\.(sa|sc|c)ss$/,
             use: [{
-                loader: 'css-hot-loader',
-            }].concat(ExtractTextPlugin.extract({
-                use: [{
-                    loader: 'css-loader',
-                    options: { sourceMap: true },
-                }, {
-                    loader: 'postcss-loader',
-                }, {
-                    loader: 'sass-loader',
-                    options: { sourceMap: true },
-                }],
-                // use style-loader in development
-                fallback: 'style-loader',
-            })),
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    hmr: true,
+                    // if hmr does not work, this is a forceful method.
+                    reloadAll: true,
+                },
+            }, {
+                loader: 'css-loader',
+                options: { sourceMap: true },
+            }, {
+                loader: 'postcss-loader',
+            }, {
+                loader: 'sass-loader',
+                options: { sourceMap: true },
+            }],
         }, {
             test: /\.js$/,
             enforce: 'pre',
@@ -56,9 +57,9 @@ module.exports = merge(common, {
         }],
     },
     plugins: [
-        new ExtractTextPlugin({
-            filename: (getPath) => getPath('css/[name].css'),
-            allChunks: true,
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].css',
+            chunkFilename: 'css/[id].css',
         }),
         new webpack.HotModuleReplacementPlugin(),
     ],

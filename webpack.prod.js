@@ -1,8 +1,8 @@
 const merge = require('webpack-merge');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-//const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const common = require('./webpack.common.js');
 
@@ -11,25 +11,25 @@ module.exports = merge(common, {
     devtool: 'source-map',
     module: {
         rules: [{
-            test: /(\.css|\.scss)$/,
-            use: ExtractTextPlugin.extract({
-                use: [{
-                    loader: 'css-loader',
-                    options: { sourceMap: true },
-                }, {
-                    loader: 'postcss-loader',
-                }, {
-                    loader: 'sass-loader',
-                    options: { sourceMap: true },
-                }],
-            }),
+            test: /\.(sa|sc|c)ss$/,
+            use: [{
+                loader: MiniCssExtractPlugin.loader,
+            }, {
+                loader: 'css-loader',
+                options: { sourceMap: true },
+            }, {
+                loader: 'postcss-loader',
+            }, {
+                loader: 'sass-loader',
+                options: { sourceMap: true },
+            }],
         }],
     },
     plugins: [
-        new CleanWebpackPlugin(['dist']),
-        new ExtractTextPlugin({
-            filename: (getPath) => getPath('css/[name]-[hash].css'),
-            allChunks: true,
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name]-[hash].css',
+            chunkFilename: 'css/[id]-[hash].css',
         }),
     ],
     optimization: {
@@ -39,6 +39,7 @@ module.exports = merge(common, {
                 parallel: true,
                 sourceMap: true,
             }),
+            new OptimizeCSSAssetsPlugin({}),
         ],
     },
 });
