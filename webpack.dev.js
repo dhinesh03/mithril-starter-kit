@@ -52,7 +52,7 @@ module.exports = merge(common, {
                 failOnError: false,
                 // Toggle autofix
                 fix: false,
-                formatter: require('eslint/lib/formatters/stylish'),
+                formatter: require('eslint/lib/cli-engine/formatters/stylish'),
             },
         }],
     },

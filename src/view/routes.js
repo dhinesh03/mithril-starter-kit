@@ -15,14 +15,11 @@ const Routes = {
     },
     '/index': {
         onmatch() {
-            // Show Loader until the promise has been resolved or rejected.
-            m.render($root, m(PageLayout, m(Splash)));
-
             return new Promise((resolve/*, reject*/) => {
                 //Fetch all necessary data here
                 setTimeout(function() {
                     resolve();
-                }, 2000);
+                }, 0);
             }).catch((/* e */) => {
                 // In case of server error we can show the maintenance page.
                 return MaintenancePage;
