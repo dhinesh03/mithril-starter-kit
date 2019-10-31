@@ -2,7 +2,10 @@
 A boilerplate Mithril application using ES6, Babel, Webpack 4, Sass/SCSS, Webpack dev server hot reload and eslint
 
 ### How to use
+By using [degit](https://github.com/Rich-Harris/degit)
 ```shell
+npx degit dhinesh03/mithril-starter-kit mithril-starter-kit
+or
 git clone https://github.com/dhinesh03/mithril-starter-kit
 ```
 or
@@ -17,6 +20,8 @@ npm start
 npm run build
   # Compiles the app for production and all compiled files lies on dist dir.
   # To deploy an the application simply transfer the dist to a web server's public directory.
+npm run build:analyze
+  # Compiles the app for production and we will have a report and stats for the bundle on dist folder.
 ```
 
 ## Directory Structure:
@@ -27,8 +32,9 @@ npm run build
 │     │     └── *.css.map
 │     ├── fonts/
 │     ├── images/
-│     ├── *.js
-│     ├── *.js.map
+│     ├── js/
+│     │     ├── *.js
+│     │     └── *.js.map
 │     └── index.html
 │
 ├── src/                          # Application source files 
@@ -56,5 +62,7 @@ npm run build
 │   
 ├── eslintrc.js                   # ESLint configuration
 ├── package.json                  # NPM configuration and scripts
-└── webpack.*.js                  # Webpack configuration
+├── .env                          # Holding environment variables for production mode
+├── .env.development              # Holding environment variables for development mode
+└── config/webpack.*.js           # Webpack configuration
 ```
