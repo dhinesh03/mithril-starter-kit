@@ -6,6 +6,6 @@ import './styles.scss';
  */
 export default function() {
     return {
-        view: (vnode) => m('.page-layout', vnode.children),
+        view: vnode => m('.page-layout', vnode.children),
     };
 }

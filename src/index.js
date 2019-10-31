@@ -1,3 +1,6 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
 /* Import all vendor.scss / css here[e.g. Import 'font-awesome/scss/font-awesome.scss';] */
 import { Routes, DefaultRoute } from './view/routes';
 
