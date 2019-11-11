@@ -18,7 +18,12 @@ module.exports = {
         new webpack.HashedModuleIdsPlugin(), // so that file hashes don't change unexpectedly
         new CleanWebpackPlugin(),
         new Dotenv({
-            path: paths.envPath // Path to .env file (this is the default)
+            path: paths.envProdPath, // Path to .env.production file 
+            expand: true
+        }),
+        new Dotenv({
+            path: paths.envPath, // Path to .env file 
+            expand: true
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name]-[contenthash:8].css',

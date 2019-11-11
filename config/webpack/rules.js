@@ -9,9 +9,7 @@ module.exports = [
         loader: 'url-loader',
         options: {
             limit: fontInlineSizeLimit,
-            name: '[name].[ext]',
-            publicPath: '../fonts/',
-            outputPath: 'fonts/'
+            name: 'fonts/[name].[ext]',
         }
     },
     {
@@ -22,7 +20,8 @@ module.exports = [
                 options: {
                     hmr: process.env.NODE_ENV === 'development',
                     // if hmr does not work, this is a forceful method.
-                    reloadAll: process.env.NODE_ENV === 'development'
+                    reloadAll: process.env.NODE_ENV === 'development',
+                    publicPath: '../'
                 }
             },
             {
@@ -55,9 +54,7 @@ module.exports = [
             loader: 'url-loader',
             options: {
                 limit: imageInlineSizeLimit,
-                name: '[name].[hash:8].[ext]',
-                publicPath: '../images/',
-                outputPath: 'images/'
+                name: 'images/[name].[hash:8].[ext]',
             }
         }
     },
@@ -72,10 +69,8 @@ module.exports = [
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
         options: {
-            limit: 1000,
-            name: '[name].[hash:8].[ext]',
-            publicPath: '../images/',
-            outputPath: 'images/'
+            limit: imageInlineSizeLimit,
+            name: 'images/[name].[hash:8].[ext]',
         }
     }
 ];

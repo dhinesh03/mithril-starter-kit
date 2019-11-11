@@ -28,8 +28,8 @@ module.exports = {
             exclude: /node_modules/,
             loader: 'eslint-loader',
             options: {
-                cache: true,
-                configFile: '.eslintrc.js',
+                cache: false,
+                configFile: './.eslintrc.js',
                 emitWarning: true,
                 // Fail only on errors
                 failOnWarning: false,
@@ -47,7 +47,12 @@ module.exports = {
     },
     plugins: [
         new Dotenv({
-            path: paths.envDevPath // Path to .env file (this is the default)
+            path: paths.envDevPath, // Path to .env.development file
+            expand: true 
+        }),
+        new Dotenv({
+            path: paths.envPath, // Path to .env file 
+            expand: true
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css',
