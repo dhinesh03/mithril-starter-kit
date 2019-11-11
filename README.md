@@ -62,7 +62,6 @@ npm run build:analyze
 │   
 ├── eslintrc.js                   # ESLint configuration
 ├── package.json                  # NPM configuration and scripts
-├── .env                          # Holding environment variables for production mode
-├── .env.development              # Holding environment variables for development mode
+├── config/environment/env.*      # Holding environment variables 
 └── config/webpack.*.js           # Webpack configuration
 ```
