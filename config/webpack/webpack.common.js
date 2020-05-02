@@ -9,18 +9,19 @@ module.exports = {
         main: paths.entryPath,
     },
     module: {
-        rules
+        rules,
     },
     resolve: {
         modules: ['src', 'node_modules'],
-        extensions: ['*', '.js', '.scss', '.css']
+        extensions: ['*', '.js', '.scss', '.css'],
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: paths.templatePath,
+            favicon: paths.faviconPath,
         }),
         new webpack.ProvidePlugin({
-            m: 'mithril' //Global access
+            m: 'mithril', //Global access
         }),
-    ]
+    ],
 };
